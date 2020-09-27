@@ -1,0 +1,603 @@
+/*
+700px: Salta h1 landing-text
+600px: Salta a landing-text
+1000px: Salta navbar
+*/
+/*#region--------------------Imports--------------------*/
+@font-face {
+  font-family: "Lobster";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Lobster Regular"), local("Lobster-Regular"),
+    url(https://fonts.gstatic.com/s/lobster/v23/neILzCirqoswsqX9zoKmMw.woff2)
+      format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: local("Montserrat ExtraBold"), local("Montserrat-ExtraBold"),
+    url(https://fonts.gstatic.com/s/montserrat/v15/JTURjIg1_i6t8kCHKm45_c5H3gnD_g.woff2)
+      format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Droid Serif";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Droid Serif Regular"), local("DroidSerif-Regular"),
+    url(https://fonts.gstatic.com/s/droidserif/v13/tDbI2oqRg1oM3QBjjcaDkOr9rAU.woff2)
+      format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+/*#endregion*/
+/*#region--------------------@media--------------------*/
+@media screen and (max-height: 700px) {
+  .landing-text a {
+    display: none;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .nav-links a {
+    margin-left: 4vw !important;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .nav-links a:not(.nav-hamburguer) {
+    display: none !important;
+  }
+  .nav-links .nav-hamburguer {
+    display: block !important;
+  }
+
+  .nav-links.responsive {
+    display: flex !important;
+    flex-wrap: wrap;
+    height: 100%;
+    width: min-content;
+    position: fixed;
+    top: 0;
+    right: 0;
+    justify-content: flex-start;
+    align-content: flex-start;
+    background-color: rgb(0, 0, 0);
+    transition: 0.5s;
+    padding-top: 3.5rem;
+  }
+  .nav-links.responsive a:not(.nav-hamburguer):not(.nav-close) {
+    display: block !important;
+    padding: 0.5rem 1.5rem !important;
+    margin: 0 !important;
+  }
+  .nav-links.responsive .nav-hamburguer {
+    display: none !important;
+  }
+  .nav-links.responsive .nav-close {
+    display: block !important;
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 1rem !important;
+  }
+}
+@media screen and (max-width: 700px) {
+  .landing-text h1 {
+    font-size: 0 !important;
+  }
+  .landing-text h1::before {
+    content: "Sergio H.";
+    font-size: 4rem;
+  }
+}
+/*#endregion*/
+/*#region--------------------Estilos base--------------------*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+p {
+  font-family: "Droid Serif", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  text-align: justify;
+  color: gray;
+}
+
+h1,
+h2 {
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  color: black;
+}
+
+.button {
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  background-color: yellowgreen;
+  display: inline-block;
+
+  transition: background-color 0.25s;
+}
+
+.button:hover {
+  box-shadow: 0px 0px 0px 3px rgba(153, 205, 50, 0.6);
+  background-color: yellow;
+}
+/*#endregion*/
+/*#region--------------------Barra de navegación--------------------*/
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.85),
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.35),
+    rgba(0, 0, 0, 0)
+  );
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /*height: 10vh;*/
+  z-index: 1;
+  transition: height 0.5s, padding 0.5s, background-color 0.5s;
+  padding: 1rem 4rem;
+  white-space: nowrap;
+}
+
+.scrollNavbar {
+  /*Aplicado solo una vez hecho scroll*/
+  background-color: rgba(0, 0, 0, 1);
+  padding: 0 4rem;
+}
+
+#logo a {
+  font-family: "Lobster", cursive;
+  font-weight: lighter;
+  font-size: 2rem;
+  color: white;
+  text-decoration: none;
+}
+#logo a:hover {
+  color: yellowgreen;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+  transition: height 0.5s, display 0.5;
+}
+
+.nav-links .nav-hamburguer {
+  display: none;
+  background: url("../images/nav/hamburguer.png") no-repeat center;
+  background-size: contain;
+  height: 4vh;
+  width: 4vh;
+}
+
+.nav-links .nav-hamburguer:hover {
+  background: url("../images/nav/hamburguer_hover.png") no-repeat center;
+  background-size: contain;
+}
+
+.nav-links .nav-close {
+  display: none;
+  float: right;
+  background: url("../images/nav/close.png") no-repeat center;
+  background-size: contain;
+  height: 4vh;
+  width: 4vh;
+}
+
+.nav-links .nav-close:hover {
+  background: url("../images/nav/close_hover.png") no-repeat center;
+  background-size: contain;
+}
+
+.nav-links a {
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: white;
+  margin-left: 6vw;
+}
+
+.nav-links a:hover {
+  color: yellowgreen;
+}
+/*#endregion*/
+/*#region--------------------Landing page (Imagen y presentación)--------------------*/
+#landing {
+  min-height: 120vh;
+  width: 100%;
+  background: url("../images/landing.jpg") no-repeat center;
+  background-size: cover;
+  background-position-y: -20vh;
+  padding: 0rem 5rem;
+}
+
+.landing-text {
+  position: relative;
+  left: 50%;
+  padding-top: 60vh;
+  transform: translate(-50%, 0);
+
+  text-align: center;
+  text-shadow: 0 0 3.5rem black;
+  white-space: nowrap;
+}
+
+.landing-text h1 {
+  font-size: 4rem;
+  text-transform: uppercase;
+  color: white;
+}
+
+.landing-text h2 {
+  font-family: "Droid Serif", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 3rem;
+}
+
+.landing-text a {
+  padding: 1.5rem 2rem;
+  font-size: 1.5rem;
+}
+/*#endregion*/
+/*#region--------------------Secciones de la página (estilos base)--------------------*/
+section {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.sectionTitle {
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 3rem;
+  padding-top: calc(12vh + 4rem);
+  transform: translateY(-6vh);
+  padding-bottom: 2rem;
+}
+
+.sectionText {
+  font-family: "Droid Serif", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  text-align: justify;
+  color: grey;
+}
+/*#endregion*/
+/*#region--------------------Sobre mi--------------------*/
+#sobre-mi .sectionText {
+  text-align: center;
+  font-style: italic;
+}
+/*#endregion*/
+/*#region--------------------Formación--------------------*/
+.elementos-formacion {
+  list-style: none;
+  width: 100%;
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: space-evenly;
+  align-content: space-around;
+}
+
+.elemento-formacion {
+  width: 45%;
+  min-width: 30rem;
+  min-height: 5rem;
+  margin: 1rem auto;
+  border-radius: 25px;
+  background: rgb(150, 255, 255);
+}
+
+.elemento-formacion img {
+  width: 30%;
+  height: 100%;
+  object-fit: contain;
+  float: left;
+  margin-left: 1rem;
+}
+
+.elemento-formacion h2 {
+  float: left;
+  width: 65%;
+  padding: 0.5rem;
+  padding-bottom: 0.35rem;
+}
+
+.lenguajes-formacion {
+  float: left;
+  height: 5vh;
+  min-height: 1.75rem;
+  width: 60%;
+  display: flex;
+  margin-left: 0.5rem;
+}
+
+.lenguajes-formacion div {
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border-radius: 0%;
+  margin-right: 0.75rem;
+}
+/*#endregion*/
+/*#region--------------------Formación autodidacta--------------------*/
+.elemento-autodidacta {
+  min-width: 30rem;
+  width: 50rem;
+  /*height: 12.5vh;*/
+  margin: 1rem auto;
+  border-radius: 25px;
+  background: rgb(150, 255, 255);
+}
+
+.texto-autodidacta {
+  font-family: "Droid Serif", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  text-align: justify;
+  color: grey;
+  padding: 1rem;
+  padding-right: 1rem;
+  margin: auto;
+  float: left;
+  height: 100%;
+  width: 35%;
+}
+
+.lenguajes-autodidacta {
+  float: left;
+  height: 100%;
+  width: 60%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.lenguajes-autodidacta div {
+  width: 10vw;
+  margin: 1rem auto;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border-radius: 0%;
+}
+/*#endregion*/
+/*#region--------------------Iconos competencias--------------------*/
+.html {
+  background-image: url(../images/competencias/html.png);
+}
+.css {
+  background-image: url(../images/competencias/css.png);
+}
+.javascript {
+  background-image: url(../images/competencias/js.png);
+}
+.react {
+  background-image: url(../images/competencias/react.png);
+}
+.ionic {
+  background-image: url(../images/competencias/ionic.png);
+}
+.angular {
+  background-image: url(../images/competencias/angular.png);
+}
+.node {
+  background-image: url(../images/competencias/node.png);
+}
+
+.java {
+  background-image: url(../images/competencias/java.png);
+}
+.android {
+  background-image: url(../images/competencias/android.png);
+}
+.sql {
+  background-image: url(../images/competencias/sql.png);
+}
+.php {
+  background-image: url(../images/competencias/php.png);
+}
+.unity {
+  background-image: url(../images/competencias/unity.png);
+}
+.csharp {
+  background-image: url(../images/competencias/csharp.png);
+}
+.git {
+  background-image: url(../images/competencias/git.png);
+}
+.github {
+  background-image: url(../images/competencias/github.png);
+}
+
+.arduino {
+  background-image: url(../images/competencias/autodidacta/arduino.png);
+}
+.raspberry {
+  background-image: url(../images/competencias/autodidacta/raspberry.png);
+}
+.espressif {
+  background-image: url(../images/competencias/autodidacta/espressif.png);
+}
+.cura {
+  background-image: url(../images/competencias/autodidacta/cura.png);
+}
+.fusion360 {
+  background-image: url(../images/competencias/autodidacta/fusion360.png);
+}
+.blender {
+  background-image: url(../images/competencias/autodidacta/blender.png);
+}
+/*#endregion*/
+/*#region--------------------Proyectos--------------------*/
+.tarjetas-proyectos a {
+  text-decoration: none;
+}
+
+.tarjetas-proyectos {
+  list-style: none;
+  width: 100%;
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: space-evenly;
+  align-content: space-around;
+}
+
+.tarjeta-proyecto,
+.tarjeta-proyecto.destacar-proyecto {
+  width: 20rem;
+  min-height: 95%;
+  padding: 1rem;
+  margin: 1rem 1rem;
+  border-radius: 25px;
+  background: url(https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png)
+    no-repeat rgb(150, 255, 255);
+  background-size: 30%;
+  padding-bottom: 6rem;
+  position: relative;
+}
+
+.tarjeta-proyecto.destacar-proyecto .button {
+  margin: 2rem auto !important;
+}
+
+.tarjeta-proyecto h2,
+.tarjeta-proyecto.destacar-proyecto h2 {
+  text-align: center;
+  margin: 1rem;
+}
+
+.tarjeta-proyecto p,
+.tarjeta-proyecto.destacar-proyecto p {
+  margin: 1rem;
+}
+
+.tarjeta-proyecto img,
+.tarjeta-proyecto.destacar-proyecto img {
+  width: 80%;
+  display: block;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.tarjeta-proyecto .button,
+.tarjeta-proyecto.destacar-proyecto .button {
+  display: block;
+  width: fit-content;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  margin: 1.5rem auto;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgb(36, 41, 46);
+}
+
+#proyectos > .button {
+  display: block;
+  margin: 2rem 12.5%;
+  float: right;
+}
+
+#todos-proyectos {
+  margin-top: 6rem;
+  margin-bottom: 3rem;
+}
+/*#endregion*/
+/*#region--------------------Demo--------------------*/
+#game {
+  width: 100%;
+  height: 60vh;
+  background-color: rgb(150, 255, 255);
+  margin-bottom: 2rem;
+}
+/*#endregion*/
+/*#region--------------------Footer--------------------*/
+footer {
+  height: fit-content;
+  background-color: black;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer a {
+  display: block;
+  width: 1.75rem;
+  height: 1.75rem;
+  margin: 0.5rem 1rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  color: white;
+}
+/*#endregion*/
+/*#region--------------------Iconos footer--------------------*/
+.rss-github {
+  background-image: url(../images/rss/github.png);
+}
+.rss-github:hover {
+  background-image: url(../images/rss/github_hover.png);
+}
+.rss-email {
+  background-image: url(../images/rss/email.png);
+}
+.rss-email:hover {
+  background-image: url(../images/rss/email_hover.png);
+}
+.rss-thingiverse {
+  background-image: url(../images/rss/thingiverse.png);
+}
+.rss-thingiverse:hover {
+  background-image: url(../images/rss/thingiverse_hover.png);
+}
+/*#endregion*/

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sergio Herrero Sanz</title>
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="scripts/app.js"></script>
+  </head>
+  <body id>
+    <header id="top">
+      <nav id="nav">
+        <h1 id="logo"><a href="index.html#top">Sergio Herrero Sanz</a></h1>
+        <ul class="nav-links" id="nav-links" onclick="desplegarNav()">
+          <a class="nav-close"></a>
+          <a href="index.html#sobre-mi"><li>Sobre mí</li></a>
+          <a href="index.html#formacion"><li>Formación</li></a>
+          <a href="index.html#proyectos"><li>Proyectos</li></a>
+          <a class="nav-hamburguer"></a>
+        </ul>
+      </nav>
+    </header>
+
+    <section id="landing">
+      <div class="landing-text">
+        <h1>Sergio Herrero</h1>
+        <h2
+          class="typewrite"
+          data-period="2000"
+          data-speed="100"
+          data-tilt="20"
+          ;
+          data-bar-speed="0.75"
+          data-type='["Programador junior", "Diseñador web"]'
+        >
+          Programador junior
+        </h2>
+        <a href="#sobre-mi" class="button">Conóceme</a>
+      </div>
+    </section>
+
+    <section id="sobre-mi">
+      <h1 class="sectionTitle">Sobre mí</h1>
+
+      <p class="sectionText">
+        ¡Hola! Lo primero que quiero decir es que me considero un maker. Me
+        entusiasma crear todo lo que se me pasa por la cabeza y tenerlo en mis
+        propias manos al terminar cada proyecto, ya sea sobre programación,
+        domótica, diseño 3D o cualquier cosa. Si algo he aprendido con el tiempo
+        es que puedo alcanzar todas mis metas si tengo suficiente motivación.
+        Aprender un nuevo programa o lenguaje no es problema, solo hace falta
+        ponerle ganas.
+      </p>
+    </section>
+
+    <section id="formacion">
+      <h1 class="sectionTitle">Formación</h1>
+      <p class="sectionText">
+        Siempre he orientado mi vida en torno a la tecnología: Arduino, diseño,
+        impresión 3D... Por eso mismo elegí estudiar directamente programación,
+        prefiriendo la práctica y obtener resultados a través de cursos que a
+        una larga carrera en la que no iba a poder apreciar mi progreso.
+      </p>
+      <br />
+
+      <ul class="elementos-formacion">
+        <li class="elemento-formacion">
+          <img src="images/formacion/front.png" alt="Curso FRONT" />
+          <h2>Curso FRONT - 2020</h2>
+          <br />
+          <div class="lenguajes-formacion">
+            <div class="html" title="HTML"></div>
+            <div class="css" title="CSS"></div>
+            <div class="javascript" title="JavaScript"></div>
+            <div class="react" title="React"></div>
+            <div class="ionic" title="Ionic"></div>
+            <div class="angular" title="Angular"></div>
+            <div class="node" title="Node"></div>
+          </div>
+        </li>
+        <li class="elemento-formacion">
+          <img
+            src="images/formacion/dam.png"
+            alt="Desarrollo de Aplicaciones Multiplataforma"
+          />
+          <h2>CFGS DAM - 2018</h2>
+          <br />
+          <div class="lenguajes-formacion">
+            <div class="java" title="Java"></div>
+            <div class="android" title="Android Studio"></div>
+            <div class="sql" title="SQL"></div>
+            <div class="php" title="PHP"></div>
+            <div class="unity" title="Unity"></div>
+            <div class="git" title="Git"></div>
+            <div class="github" title="Github"></div>
+          </div>
+        </li>
+        <li class="elemento-autodidacta">
+          <p class="texto-autodidacta">
+            Además de la formación oficial he obtenido por mi cuenta
+            competencias en:
+          </p>
+          <div class="lenguajes-autodidacta">
+            <div class="arduino" title="Arduino"></div>
+            <div class="raspberry" title="Raspberry Pi"></div>
+            <div class="espressif" title="ESP32"></div>
+            <div class="cura" title="Ultimaker Cura"></div>
+            <div class="fusion360" title="Autodesk Fusion 360"></div>
+            <div class="blender" title="Blender"></div>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section id="proyectos">
+      <h1 class="sectionTitle">Proyectos</h1>
+      <p class="sectionText">
+        Poco a poco he ido creando software, tanto para clase, para uso personal
+        oy por petición de algún conocido. Aquí dejo los más recientes y los que
+        considero que deben ser destacados, ya sea por la complejidad del
+        proyecto o por que estoy orgulloso de ellos.
+      </p>
+      <div class="tarjetas-proyectos" id="aniadirTarjetas">
+        <!--Añadidos mediante js-->
+      </div>
+      <a href="proyectos.html" class="button">Ver más</a><br clear="all" />
+    </section>
+
+    <footer id="rss">
+      <a
+        class="rss-github"
+        title="Github"
+        href="https://github.com/SergioHerreroSanz?tab=repositories"
+        target="_blank"
+      ></a>
+      <a
+        class="rss-email"
+        title="Email"
+        href="mailto:sergioherrerosanz@gmail.com"
+        target="_blank"
+      ></a>
+      <a
+        class="rss-thingiverse"
+        title="Thingiverse"
+        href="https://www.thingiverse.com/sergioherrerosanz/designs"
+        target="_blank"
+      ></a>
+    </footer>
+  </body>
+</html>

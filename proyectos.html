@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sergio Herrero Sanz</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="scripts/app.js"></script>
+  </head>
+  <body>
+    <header id="top">
+      <nav id="nav">
+        <h1 id="logo"><a href="index.html#top">Sergio Herrero Sanz</a></h1>
+        <ul class="nav-links" id="nav-links" onclick="desplegarNav()">
+          <a class="nav-close"></a>
+          <a href="index.html#sobre-mi"><li>Sobre mí</li></a>
+          <a href="index.html#formacion"><li>Formación</li></a>
+          <a href="index.html#proyectos"><li>Proyectos</li></a>
+          <a class="nav-hamburguer"></a>
+        </ul>
+      </nav>
+    </header>
+
+    <section id="todos-proyectos">
+      <div class="tarjetas-proyectos">
+        <div class="tarjeta-proyecto destacar-proyecto">
+          <h2>OliCam</h2>
+          <p>
+            Aplicación Android que muestra el vídeo de la cámara a pantalla
+            completa sin botones o controles que obstaculicen la visión. No
+            captura imágenes ni vídeos. Destinada a streamers que quieran
+            capturar la pantálla del dispositivo.
+          </p>
+          <img src="./images/proyectos/olicam.png" alt="OliCam" />
+          <a
+            href="https://github.com/SergioHerreroSanz/android-OliCam"
+            target="_blank"
+            class="button"
+            >Ver en GitHub
+          </a>
+        </div>
+        <div class="tarjeta-proyecto destacar-proyecto">
+          <h2>HBO Hotkeys</h2>
+          <p>
+            Extensión de chrome que añade controles por teclado al reproductor
+            integrado de la plataforma HBO. Utiliza DOM y JavaScript nativo para
+            mayor compatibilidad.
+            <br />
+            Publicada en la Chrome Web Store
+            <a
+              href="https://chrome.google.com/webstore/detail/hbo-hotkeys/ceiefmgcmohhbmkhnggaiilcnfkkdlie?utm_source=chrome-ntp-icon"
+              >aquí</a
+            >.
+          </p>
+          <img src="./images/proyectos/hbo.png" alt="HBO Hotkeys" />
+          <br /><a
+            href="https://github.com/SergioHerreroSanz/HBO-Hotkeys"
+            target="_blank"
+            class="button"
+            >Ver en GitHub
+          </a>
+        </div>
+        <div class="tarjeta-proyecto destacar-proyecto">
+          <h2>GarageDoor</h2>
+          <p>
+            Aplicación Android que permite abrir una puerta de garaje conectada
+            a una raspberry. Servidor Node con autenticación a través de
+            Firebase. Guarda registros en una base de datos integrada con
+            automatización para la baja de usuarios.
+          </p>
+          <img src="./images/proyectos/garagedoor.png" alt="GarageDoor" />
+          <a
+            href="https://github.com/SergioHerreroSanz/HBO-Hotkeys"
+            target="_blank"
+            class="button"
+            >Ver en GitHub
+          </a>
+        </div>
+        <div class="tarjeta-proyecto">
+          <h2>Tile Map</h2>
+          <p>
+            Aplicación Android que permite guardar la posición en la que has
+            aparcadoy otener indicaciones de google maps para volver a ella.
+            Destaca por soportar acciones en un clic a través de "Quick Settings
+            Tiles". En desarrollo.
+          </p>
+          <img src="./images/proyectos/tilemap.png" alt="TileMap" />
+          <a
+            href="https://github.com/SergioHerreroSanz/android-tilemap"
+            target="_blank"
+            class="button"
+            >Ver en GitHub
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer id="rss">
+      <a
+        class="rss-github"
+        title="Github"
+        href="https://github.com/SergioHerreroSanz?tab=repositories"
+        target="_blank"
+      ></a>
+      <a
+        class="rss-email"
+        title="Email"
+        href="mailto:sergioherrerosanz@gmail.com"
+        target="_blank"
+      ></a>
+      <a
+        class="rss-thingiverse"
+        title="Thingiverse"
+        href="https://www.thingiverse.com/sergioherrerosanz/designs"
+        target="_blank"
+      ></a>
+    </footer>
+  </body>
+</html>
