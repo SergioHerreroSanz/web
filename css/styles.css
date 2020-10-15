@@ -146,7 +146,7 @@
 
 @media screen and (max-width: 425px) {
   #nav {
-    padding: 1rem;
+    padding: 0.25rem 1rem;
   }
 
   #logo a {
